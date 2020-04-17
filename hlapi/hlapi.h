@@ -216,6 +216,7 @@ class WinProcessList
 	void Refresh();
 	WinProcess* FindProc(const char* name);
 	WinProcess* FindProcNoCase(const char* name);
+	WinProcess* FindProc(uint64_t pid);
 	iterator begin();
 	iterator end();
 	WinProcessList();
