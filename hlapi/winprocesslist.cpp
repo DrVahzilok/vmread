@@ -44,6 +44,18 @@ WinProcess* WinProcessList::FindProcNoCase(const char* name)
 	return nullptr;
 }
 
+WinProcess* WinProcessList::FindProc(uint64_t pid)
+{
+	if (!plist.list)
+		Refresh();
+
+	for (auto& i : *this)
+		if (pid == i.proc.pid)
+			return &i;
+
+	return nullptr;
+}
+
 WinProcessList::WinProcessList()
 {
 	plist.list = nullptr;
